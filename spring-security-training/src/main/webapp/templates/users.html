@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <meta charset="UTF-8"/>
+    <title>All Users</title>
+</head>
+<body>
+    <h3>All Users</h3>
+
+    <div th:replace="fragments/header :: header"/>
+
+    <p th:text="${welcomeMessage}"/>
+
+
+    Total users:<span th:text="${totalUsers}"/>
+
+
+
+    <!--<table>-->
+        <!--<tbody>-->
+            <!--<tr th:each="book : ${books}">-->
+                <!--<td th:text="${book.title}"/>-->
+                <!--&lt;!&ndash;<td>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<input type="text" th:field="*{book.title}" />&ndash;&gt;-->
+                <!--&lt;!&ndash;</td>&ndash;&gt;-->
+                <!--<td th:text="${book.author}">author</td>-->
+                <!--<td th:text="${book.price}">price</td>-->
+
+                <!--&lt;!&ndash;<td><a href="#" th:text="${message.title}">Title ...</a></td>&ndash;&gt;-->
+            <!--</tr>-->
+        <!--</tbody>-->
+    <!--</table>-->
+    <br/>
+    <a href="addbook">Add New User</a>
+    <br/>
+    --------------------
+    <!--<form action="#" th:action="@{/addbook}" th:object="${newBook}" method="post">-->
+            <!--<p>Title</p><input type="text" th:field="*{newBook.title}" />-->
+    <!--</form>-->
+</body>
+</html>

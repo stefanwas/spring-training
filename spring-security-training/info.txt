@@ -1,0 +1,27 @@
+Thymeleaf reference types:
+
+${...} : Variable expressions. These are OGNL expressions (or Spring EL if you have spring integrated)
+*{...} : Selection expressions. Same as above, excepted it will be executed on a previously selected object only
+#{...} : Message (i18n) expressions. Used to retrieve locale-specific messages from external sources
+@{...} : Link (URL) expressions. Used to build URLs
+~{...} : Fragment expressions. Represent fragments of markup and move them around templates
+
+-----
+
+ModelAndView vs ModelMap classes in web methods?
+
+ModelMap to mapa z atrybutami modelu. ModelMap jest parametrem web metody. W ciele metody ustawiamy atrybuty poprzez
+addAttribute() a na końcu zwracamy nazwę widoku.
+ModelAndView to alternatywne podejście. Łączy w sobie ModelMap i nazwę widoku. Widok można zdefiniować też bezpośrednio,
+wtedy prawdopodobnie nie jest porzebny ViewResolver.
+
+-----
+
+Gdy wyłączymy anonymous authentication (<anonymous enabled="false" />) to przestaje działać dostęp do ścieżki /login.
+W takim przypadku trzeba wynieść /login poza filter chain tj. <http> element.
+
+
+
+
+=== links ===
+https://docs.spring.io/spring-security/site/docs/current/reference/htmlsingle/#multiple-httpsecurity

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Login Page</title>
+</head>
+<body>
+    <h2>Login Page</h2>
+    <!--<p th:text="${username}"></p>-->
+    <div th:if="${error}">
+        <h4 style="color:red">Invalid login credentials. Please try again!!</h4>
+    </div>
+    <form name='loginForm' action="#" th:action="@{/login}" method="POST">
+        <p>Username:<input name="username" type="text"  /></p>
+        <p>Password:<input name="password" type="password" /></p>
+        <!--<button type="submit" name="addRow">Add Book</button>-->
+        <td><input name="submit" type="submit" value="submit" /></td>
+    </form>
+</body>
+</html>
+

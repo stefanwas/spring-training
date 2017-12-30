@@ -16,6 +16,7 @@
         <module>spring-data-training</module>
         <module>spring-web-training</module>
         <module>spring-thymeleaf-training</module>
+        <module>spring-security-training</module>
     </modules>
 
     <properties>

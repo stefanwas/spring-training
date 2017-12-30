@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<body>
+    <div th:fragment="header">
+        <div th:if="${principal}">
+            <h3> You are logged in as: [<span th:text="${principal}" />] Roles: <span th:text="${roles}" /></h3>
+            <form id="logout" action="#" th:action="@{/logout}" method="POST"></form>
+            <a href="javascript:document.getElementById('logout').submit()">Logout</a>
+        </div>
+        <div th:if="!${principal}">
+            <h3>You are not logged in.</h3>
+            <a th:href="@{/login}">Login</a>
+        </div >
+
+        <hr/>
+
+        <div sec:authorize="isAuthenticated()">
+            You are authenticated user.
+        </div>
+        <div sec:authorize="hasRole('ROLE_ADMIN')">
+            You have ADMIN role.
+        </div>
+        <div sec:authorize="hasRole('ROLE_USER')">
+            You have USER role.
+        </div>
+
+        <div sec:authorize="isAuthenticated()">
+            <hr/>
+            Logged user: <b><span sec:authentication="name" /></b>
+            <br/>
+            User roles: <b><span sec:authentication="principal.roles" /></b>
+            <hr/>
+        </div>
+    </div>
+</body>
+</html>

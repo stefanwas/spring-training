@@ -1,0 +1,31 @@
+Tasks:
+
+- initial setup DONE
+1. Add slf4j + log4j logging DONE
+2. Add user page + more login restrictions DONE
+3. Add header with information about logged in user name + role (fragment) DONE
+4. logout DONE
+
+- db based authentication
+1. setup MySQL DB DONE
+2. user Spring @Repository to access data DONE
+3. configure user authentication DONE
+4. add controller to manage users DONE
+5. password encryption DONE
+6. improve admin, create/deleteUser URL without redirect: GET after POST -> PRG approach
+7. method level authorization SKIPPED
+8. template content display AuthZ DONE
+9. add separate table with roles SKIPPED
+
+- SSL/TLS
+1. add SSL config to maven tomcat plugin DONE
+2. add SSL config to the standalone tomcat
+
+Feats:
+- initial setup DONE
+- DB based authentication DONE
+- switch to https (SSL/TLS)
+- Google login integration
+- thymeleaf engine throttling (reactive approach)
+- move app spring config to java
+

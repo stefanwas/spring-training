@@ -19,6 +19,7 @@
         <module>spring-security-training</module>
         <module>spring-security-ano-training</module>
         <module>spring-security-jsp2-training</module>
+        <module>spring-security-rest-training</module>
     </modules>
 
     <properties>

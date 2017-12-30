@@ -1,0 +1,6 @@
+
+ref:
+https://examples.javacodegeeks.com/core-java/security/spring-security-spring-rest-web-service/
+
+to log in:
+curl -i -X POST -d username=admin -d password=admin http://localhost:8080/spring-security/login

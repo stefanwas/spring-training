@@ -1,4 +1,4 @@
-package springbatchxml;
+package com.stefan.training.spring.batch;
 
 import org.springframework.batch.item.file.mapping.FieldSetMapper;
 import org.springframework.batch.item.file.transform.FieldSet;

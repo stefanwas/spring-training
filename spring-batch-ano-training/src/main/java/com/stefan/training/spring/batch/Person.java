@@ -1,14 +1,8 @@
-package springbatchxml;
+package com.stefan.training.spring.batch;
 
-
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlRootElement;
-
-@XmlRootElement(name = "persons")
 public class Person {
-
-    private String firstName;
     private String lastName;
+    private String firstName;
 
     public Person() {
 
@@ -23,12 +17,10 @@ public class Person {
         this.firstName = firstName;
     }
 
-    @XmlAttribute(name = "firstName")
     public String getFirstName() {
         return firstName;
     }
 
-    @XmlAttribute(name = "lastName")
     public String getLastName() {
         return lastName;
     }

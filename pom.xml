@@ -11,6 +11,7 @@
 
     <modules>
         <module>spring-batch-xml-training</module>
+        <module>spring-batch-ano-training</module>
     </modules>
 
     <properties>

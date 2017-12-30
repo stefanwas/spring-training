@@ -1,4 +1,4 @@
-package springbatchxml;
+package com.stefan.training.spring.batch;
 
 import org.springframework.batch.core.JobExecution;
 import org.springframework.batch.core.JobExecutionListener;

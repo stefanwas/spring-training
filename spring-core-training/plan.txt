@@ -1,0 +1,42 @@
+Lab 1 - simple app, xml config, setter injection, @required, test,
+Lab 2 - simple app, xml config, constructor based injection, properties
+Lab 3 - simple app, annotation config, setter injection
+Lab 4 - simple app, annotation config, constructor injection
+Lab 5 - property placeholder configurer, expressions
+
+- use list, map etc
+
+INFO:
+
+Injecting annotations (basically all of them behave very similar, Spring detects all of them):
+
+Annotation	    Package	                            Source              Specific bean
+@Resource	    javax.annotation	                Java                (name="beanName")
+@Inject	        javax.inject	                    Java                @Qualifier("beanName")
+@Autowired	    org.springframework.bean.factory	Spring              @Qualifier("beanName")
+---
+@Qualifier	    javax.inject	                    Java
+
+How do they work?
+- @Resource -   can be applied to field, setter method and class.
+                by default the name and type of the referring resource are inferred form the field or setter
+                @Resource means get me a known resource by name. (the name is extracted from the name of the annotated setter or field, or it is taken from the name-Parameter)
+
+- @Autowired/@Inject -  try to wire in a suitable other component by type.
+
+    So, basically these are two quite distinct concepts.
+    Unfortunately the Spring-Implementation of @Resource has a built-in fallback, which kicks in when resolution by-name fails.
+    In this case, it falls back to the @Autowired-kind resolution by-type. While this fallback is convenient, IMHO it causes a lot of confusion,
+    because people are unaware of the conceptual difference and tend to use @Resource for type-based autowiring.
+
+
+
+Bean def annotations:
+@Component      org.springframework.stereotype      Spring
+@Service        org.springframework.stereotype      Spring
+@Repository     org.springframework.stereotype      Spring
+@Controller     org.springframework.stereotype      Spring
+
+@Service, @Repository and @Controller are specialized @Components. You can choose to perform specific actions with them. For example:
+- @Controller beans are used by spring-mvc
+- @Repository beans are eligible for persistence exception translation

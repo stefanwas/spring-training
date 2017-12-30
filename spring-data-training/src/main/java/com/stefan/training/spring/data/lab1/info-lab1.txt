@@ -1,0 +1,18 @@
+The basic scenario:
+We use CRUD repository with following default methods:
+
+save(Employee)
+delete(Employee)
+find(Employee)
+find(Long)
+findAll()
+...
+
+plus one custom method: findByLastName(String lastName)
+
+It is possible to declare any findBy... method where the suffix corresponds to the field name (in this case it's lastName)
+
+We can use PagingAndSortingRepository instead to support paging and sorting.
+Page<User> users = repository.findAll(new PageRequest(1, 20));
+
+

@@ -1,0 +1,11 @@
+Materials:
+http://projects.spring.io/spring-data/#quick-start
+https://docs.spring.io/spring-data/data-commons/docs/1.6.1.RELEASE/reference/html/repositories.html
+
+- JPA annotations
+- core Spring Data classes
+
+INTRO
+
+Spring Data uses JPA Entity annotations to generate Repository implementation while bootstrap.
+JPA is only a generalization and not a concrete implementation of any ORM tool. It uses Hibernate

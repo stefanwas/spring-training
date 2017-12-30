@@ -14,6 +14,7 @@
         <module>spring-batch-ano-training</module>
         <module>spring-core-training</module>
         <module>spring-data-training</module>
+        <module>spring-web-training</module>
     </modules>
 
     <properties>

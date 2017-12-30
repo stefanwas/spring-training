@@ -1,0 +1,11 @@
+PLAN
+0. Spring Boot
+1. simple web service with xml config
+2. same with annotation
+3. REST naming convention
+4. JAXB annotations
+
+---
+prepare nice & simple ui to add/remove/list/edit a message
+
+REST Resource naming convention - http://www.restapitutorial.com/lessons/restfulresourcenaming.html

@@ -17,6 +17,8 @@
         <module>spring-web-training</module>
         <module>spring-thymeleaf-training</module>
         <module>spring-security-training</module>
+        <module>spring-security-ano-training</module>
+        <module>spring-security-jsp2-training</module>
     </modules>
 
     <properties>

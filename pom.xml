@@ -20,6 +20,7 @@
         <module>spring-security-ano-training</module>
         <module>spring-security-jsp2-training</module>
         <module>spring-security-rest-training</module>
+        <module>spring-boot-oauth2-training</module>
     </modules>
 
     <properties>

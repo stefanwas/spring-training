@@ -9,14 +9,14 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class LoginController {
 
-    @RequestMapping(path = "/login", method = RequestMethod.GET)
-    public ModelAndView login() {
+//    @RequestMapping(path = "/login", method = RequestMethod.GET)
+//    public ModelAndView login() {
 //        ModelAndView mv = new ModelAndView();
 //        mv.addObject("username", "u");
 //        mv.addObject("password", "p");
 //        mv.setViewName("login");
-        return mv;
-    }
+//        return mv;
+//    }
 
     @RequestMapping(path = "/login", method = RequestMethod.POST)
     public String login(@ModelAttribute("username") String username, @ModelAttribute("password") String password) {

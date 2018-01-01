@@ -1,8 +1,8 @@
 package com.stefan.training.spring.security.service;
 
-import com.stefan.training.model.AuthenticatedUser;
-import com.stefan.training.model.User;
-import com.stefan.training.repository.UserRepository;
+import com.stefan.training.spring.security.model.AuthenticatedUser;
+import com.stefan.training.spring.security.model.User;
+import com.stefan.training.spring.security.repository.UserRepository;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;

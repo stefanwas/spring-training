@@ -1,0 +1,5 @@
+bazuje na:
+https://spring.io/guides/tutorials/spring-boot-oauth2/
+
+OAuth2 RFC:
+https://tools.ietf.org/html/rfc6749#section-4

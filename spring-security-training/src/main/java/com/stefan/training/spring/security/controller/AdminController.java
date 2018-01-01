@@ -1,8 +1,8 @@
 package com.stefan.training.spring.security.controller;
 
-import com.stefan.training.model.User;
-import com.stefan.training.repository.UserRepository;
-import com.stefan.training.service.PasswordService;
+import com.stefan.training.spring.security.model.User;
+import com.stefan.training.spring.security.repository.UserRepository;
+import com.stefan.training.spring.security.service.PasswordService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;

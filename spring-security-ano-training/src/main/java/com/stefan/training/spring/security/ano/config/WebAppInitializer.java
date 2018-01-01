@@ -29,7 +29,7 @@ public class WebAppInitializer implements WebApplicationInitializer {
         AnnotationConfigWebApplicationContext applicationContext = new AnnotationConfigWebApplicationContext();
         applicationContext.setParent(rootContext);
         applicationContext.register(WebAppConfiguration.class);
-        applicationContext.scan("com.stefan.training.app");
+        applicationContext.scan("com.stefan.training.spring.security.ano");
         applicationContext.setServletContext(servletContext);
         applicationContext.refresh();
 

@@ -21,6 +21,8 @@
         <module>spring-security-jsp2-training</module>
         <module>spring-security-rest-training</module>
         <module>spring-boot-oauth2-training</module>
+        <module>spring-rest-template-training</module>
+        <module>spring-boot-security-ano-training</module>
     </modules>
 
     <properties>

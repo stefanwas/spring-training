@@ -1,0 +1,8 @@
+https://www.youtube.com/watch?v=vX_txZ3ETBg
+
+https://spring.io/guides/tutorials/spring-security-and-angular-js/
+
+Problems solved
+
+1. localhost:8080/index.html zwraca 404 - not found
+- trzeba przenieść wszystkie resourcy do /src/main/resources/static i zadziała

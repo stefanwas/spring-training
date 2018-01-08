@@ -6,3 +6,10 @@ Problems solved
 
 1. localhost:8080/index.html zwraca 404 - not found
 - trzeba przenieść wszystkie resourcy do /src/main/resources/static i zadziała
+
+2. Angular $resource nie odbiera prostego Stringa z rest serwisu
+
+- domyślnie response z Spring REST niesie header : Content-Type:application/json więc Angular spodziewa się obiektu
+i stąd error.
+
+- rozwiązanie: zastąpić String'a obiektem. (alternatywnie trzebaby użyć $http zamiast $resource)

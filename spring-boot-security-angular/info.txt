@@ -13,3 +13,12 @@ Problems solved
 i stąd error.
 
 - rozwiązanie: zastąpić String'a obiektem. (alternatywnie trzebaby użyć $http zamiast $resource)
+
+3. Implementacja routingu w AngualrJS
+
+- standardowa Angular dostarca moduł -ngRouter, lepszy jest jednak 3rd-party Angular UI-Router
+
+4. Użycie kompentów
+AngularJS 1.5 introduced the .component(), which is a special class of directives.
+A component encapsulates a template and a controller as a single unit, and also explicitly defines its inputs (data) and outputs (events).
+https://ui-router.github.io/ng1/tutorial/hellosolarsystem

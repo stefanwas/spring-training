@@ -13,13 +13,19 @@
 <body ng-controller="MainController">
     <div class="container">
 
-        <h2>Greetings</h2>
+        <h2>Main Page</h2>
+
+        <a ui-sref="login" ui-sref-active="active">Login</a>
+        <a ui-sref="welcome" ui-sref-active="active">Welcome</a>
+
+        <ui-view></ui-view>
 
 
 
-        <p>Please log in</p>
-        <p>{{document.id}}</p>
-        <p>{{document.content}}</p>
+
+        <!--<p>Please log in</p>-->
+        <!--<p>{{document.id}}</p>-->
+        <!--<p>{{document.content}}</p>-->
 
 
     </div>
@@ -29,6 +35,8 @@
     <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.4/lodash.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular-resource.js"></script>
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular-route.js"></script>-->
+    <script src="//unpkg.com/@uirouter/angularjs/release/angular-ui-router.min.js"></script>
     <script src="./index.js"></script>
 </body>
 </html>

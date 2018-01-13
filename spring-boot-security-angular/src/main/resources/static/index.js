@@ -12,18 +12,31 @@ angular.module('sample.app', ['ngResource', 'ui.router'])
         var loginState = {
             name: 'login',
             url: '/login',
-            template: '<h3>Please log in:</h3>'
+            component: 'login'
         }
 
         var welcomeState = {
             name: 'welcome',
             url: '/welcome',
-            template: '<h3>Welcome!</h3>'
+            templateUrl: 'templates/welcome.html'
         }
 
         $stateProvider.state(loginState);
         $stateProvider.state(welcomeState);
 
+    })
+
+    .component('login', {
+
+        templateUrl : 'templates/login.html',
+
+        controller: function() {
+            this.greeting = 'hello';
+
+            this.toggleGreeting = function() {
+                this.greeting = (this.greeting == 'hello') ? 'whats up' : 'hello';
+            }
+        }
     })
 
     .factory('DocumentService', ['$resource', function($resource) {

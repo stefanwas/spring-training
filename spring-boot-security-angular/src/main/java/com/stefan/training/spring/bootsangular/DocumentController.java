@@ -1,4 +1,4 @@
-package com.stefan.training.spring.boot.angular;
+package com.stefan.training.spring.bootsangular;
 
 
 import org.springframework.web.bind.annotation.PathVariable;

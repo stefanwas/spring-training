@@ -12,7 +12,7 @@ Problems solved
 - domyślnie response z Spring REST niesie header : Content-Type:application/json więc Angular spodziewa się obiektu
 i stąd error.
 
-- rozwiązanie: zastąpić String'a obiektem. (alternatywnie trzebaby użyć $http zamiast $resource)
+- rozwiązanie: zastąpić String'a obiektem. (alternatywnie trzeba by użyć $http zamiast $resource)
 
 3. Implementacja routingu w AngualrJS
 
@@ -22,3 +22,7 @@ i stąd error.
 AngularJS 1.5 introduced the .component(), which is a special class of directives.
 A component encapsulates a template and a controller as a single unit, and also explicitly defines its inputs (data) and outputs (events).
 https://ui-router.github.io/ng1/tutorial/hellosolarsystem
+
+To może być przydatne:
+https://samerabdelkafi.wordpress.com/2016/01/25/secure-angularjs-application-with-spring-security/
+

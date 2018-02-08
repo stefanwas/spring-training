@@ -3,10 +3,9 @@
 // Declare app level module which depends on views, and components
 angular.module('sample.app', ['ngResource', 'ui.router'])
 
-    // this is to instruct server to NOT send header to require basic authentication (Authenticate : Basic ...)
-    // it tells the server that the client is not a browser
     .config(function($httpProvider, $stateProvider) {
 
+        // it tells the server that the client is not a browser (instructs server to NOT send header to require basic authentication (Authenticate : Basic ...)
         $httpProvider.defaults.headers.common["X-Requested-With"] = 'XMLHttpRequest';
 
         var loginState = {
@@ -58,6 +57,7 @@ angular.module('sample.app', ['ngResource', 'ui.router'])
         };
 
         $scope.open('123');
+//        $scope.authenticate();        //TODO authn on every app reload
 
     }]);
 

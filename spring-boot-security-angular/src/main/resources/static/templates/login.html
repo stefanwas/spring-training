@@ -1,2 +1,7 @@
-<h3>{{$ctrl.greeting}} Solar System!</h3>
+<h4>{{$ctrl.greeting}} Solar System!</h4>
 <button ng-click="$ctrl.toggleGreeting()">toggle greeting</button>
+
+<h3>Please log in.</h3>
+<input type="text" id="username" ng-model="$ctrl.username">
+<input type="text" id="password" ng-model="$ctrl.password">
+<button ng-click="$ctrl.login()">Login</button>

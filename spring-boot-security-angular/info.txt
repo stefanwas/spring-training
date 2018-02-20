@@ -1,6 +1,6 @@
 https://www.youtube.com/watch?v=vX_txZ3ETBg
 
-https://spring.io/guides/tutorials/spring-security-and-angular-js/
+https://spring.io/guides/tutorials/spring-security-and-angular-js/ w nowym angularze
 
 Problems solved
 
@@ -9,14 +9,13 @@ Problems solved
 
 2. Angular $resource nie odbiera prostego Stringa z rest serwisu
 
-- domyślnie response z Spring REST niesie header : Content-Type:application/json więc Angular spodziewa się obiektu
-i stąd error.
+- domyślnie response z Spring REST niesie header : Content-Type:application/json więc Angular spodziewa się obiektu i stąd error.
 
 - rozwiązanie: zastąpić String'a obiektem. (alternatywnie trzeba by użyć $http zamiast $resource)
 
 3. Implementacja routingu w AngualrJS
 
-- standardowa Angular dostarca moduł -ngRouter, lepszy jest jednak 3rd-party Angular UI-Router
+- standardowa Angular dostarcza moduł -ngRouter, lepszy jest jednak 3rd-party Angular UI-Router
 
 4. Użycie kompentów
 AngularJS 1.5 introduced the .component(), which is a special class of directives.
@@ -25,4 +24,7 @@ https://ui-router.github.io/ng1/tutorial/hellosolarsystem
 
 To może być przydatne:
 https://samerabdelkafi.wordpress.com/2016/01/25/secure-angularjs-application-with-spring-security/
+
+A na tym się wzoruję:
+https://spring.io/blog/2015/01/12/the-login-page-angular-js-and-spring-security-part-ii
 

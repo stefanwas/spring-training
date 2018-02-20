@@ -29,6 +29,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Autowired
     private RestAccessDeniedHandler restAccessDeniedHandler;
 
+    @Autowired
+    private UserDetailsService userDetailsService;
+
 
     // Autowire other required beans
 
@@ -50,10 +53,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         web.ignoring()
                 .antMatchers(
                     "/",
-                    "/index.html",
-                    "/login.html",
-                    "/resources/**",
-                    "/partials/**",
+                    "/index.*",
+//                    "/login.*",
+//                    "/resources/**",
+                    "/templates/**",
                     "/error/**"
                 );
     }
@@ -64,7 +67,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
             .headers().disable()
             .csrf().disable()
             .authorizeRequests()
-                .antMatchers("/v2/api-docs").hasAnyAuthority("admin")
+//                .antMatchers("/v2/api-docs").hasAnyAuthority("admin")
                 .antMatchers("/users/**").hasAnyAuthority("admin")
                 .anyRequest().authenticated()
                 .and()

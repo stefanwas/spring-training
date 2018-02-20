@@ -5,10 +5,12 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.Collection;
 
+@Component
 public class UserDetailsService implements org.springframework.security.core.userdetails.UserDetailsService {
 
     @Autowired
@@ -27,8 +29,9 @@ public class UserDetailsService implements org.springframework.security.core.use
 //        }
 
         Collection<GrantedAuthority> grantedAuthorities = new ArrayList<GrantedAuthority>();
-        for (Authority authority : user.getAuthorities()) {
-            GrantedAuthority grantedAuthority = new SimpleGrantedAuthority(authority.getName());
+
+        for (String authority : user.getAuthorities()) {
+            GrantedAuthority grantedAuthority = new SimpleGrantedAuthority(authority);
             grantedAuthorities.add(grantedAuthority);
         }
 

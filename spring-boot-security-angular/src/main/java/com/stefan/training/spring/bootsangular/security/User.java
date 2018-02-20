@@ -1,10 +1,19 @@
 package com.stefan.training.spring.bootsangular.security;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class User {
 
     private String name;
     private String password;
-    private Authority[] authorities;
+    private List<String> authorities;
+
+    public User(String name, String password, String... authorities) {
+        this.name = name;
+        this.password = password;
+        this.authorities = Arrays.asList(authorities);
+    }
 
     public String getName() {
         return name;
@@ -22,11 +31,11 @@ public class User {
         this.password = password;
     }
 
-    public Authority[] getAuthorities() {
+    public List<String> getAuthorities() {
         return authorities;
     }
 
-    public void setAuthorities(Authority[] authorities) {
+    public void setAuthorities(List<String> authorities) {
         this.authorities = authorities;
     }
 }

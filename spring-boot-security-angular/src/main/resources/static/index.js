@@ -32,6 +32,7 @@ angular.module('sample.app', ['ngResource', 'ui.router'])
 
         controller: function() {
             this.greeting = 'hello';
+            this.credentials = {};
             this.username = "";
             this.password = "";
 
@@ -50,10 +51,40 @@ angular.module('sample.app', ['ngResource', 'ui.router'])
         return $resource('document/:documentId', {documentId : '@documentId'});
     }])
 
-    .controller('MainController', ['$scope', 'DocumentService', function ($scope, DocumentService) {
+    .factory('LoginService', ['$resource', function($resource) {
+        return $resource('authenticate', { username: "@username", password: "@password" });
+    }])
+
+    .controller('MainController', ['$scope', 'DocumentService', 'LoginService', function ($scope, DocumentService, LoginService) {
 
         $scope.authenticated = false;
         $scope.document = null;
+
+        $scope.getDocument = function() {
+            console.log("Getting document...")
+            DocumentService.get({documentId : '12345'}, function(result) {
+                console.log("Got doc id=" + result.id + " content=" + result.content);
+            });
+        }
+
+        $scope.authenticate = function() {
+            console.log("Authenticate method called.");
+            LoginService.save(
+                { username: "wojtek", password: "abc123" },
+                function(result) {
+                    $scope.authenticated = true;
+                    console.log("Auth result success: " + result.code);
+                },
+                function(result) {
+                    console.log("Auth result error: " + result.code);
+                }
+            );
+        };
+
+
+
+        $scope.logout = function() {
+        };
 
         $scope.open = function(documentId) {
             console.log("GET=" + documentId);

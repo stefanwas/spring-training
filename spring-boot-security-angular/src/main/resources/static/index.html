@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="utf-8">
+    <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <title>Spring Boot Security with AngularJS</title>
@@ -13,7 +14,7 @@
 <body ng-controller="MainController">
     <div class="container">
 
-        <h2>Main Page</h2>
+        <h2>Main Page !</h2>
 
         <div ng-show="!authenticated">
             <a ui-sref="login" ui-sref-active="active">Login</a>
@@ -25,6 +26,9 @@
         <ui-view></ui-view>
 
 
+        <button ng-click="authenticate()">Authenticate</button>
+        <br/>
+        <button ng-click="getDocument()">Get Document</button>
 
 
         <!--<p>Please log in</p>-->

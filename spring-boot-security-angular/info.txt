@@ -28,3 +28,14 @@ https://samerabdelkafi.wordpress.com/2016/01/25/secure-angularjs-application-wit
 A na tym się wzoruję:
 https://spring.io/blog/2015/01/12/the-login-page-angular-js-and-spring-security-part-ii
 
+5. Ja właczyć auto-odświeżanie resourców
+
+Go to Help->Find Action
+Type "Registry".
+Find and mark : “compiler.automake.allow.when.app.running”.
+Close the Dialog.
+Go to "Settings->Build, Execution, Deployment->Compiler".
+Mark "Build project automatically".
+Apply changes.
+Go to Spring Boot Configuration and if everything goes well it will display a warning about "background compilation",
+Run your Spring Boot Application and you should be able to see your statisc's files changes when refresh your browser.

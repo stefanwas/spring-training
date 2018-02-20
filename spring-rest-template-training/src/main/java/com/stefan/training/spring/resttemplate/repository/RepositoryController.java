@@ -1,9 +1,9 @@
 package com.stefan.training.spring.resttemplate.repository;
 
-import allegro.homework.github.GithubClient;
-import allegro.homework.github.GithubException;
-import allegro.homework.github.GithubRepoDetails;
-import allegro.homework.shared.Message;
+import com.stefan.training.spring.resttemplate.github.GithubClient;
+import com.stefan.training.spring.resttemplate.github.GithubException;
+import com.stefan.training.spring.resttemplate.github.GithubRepoDetails;
+import com.stefan.training.spring.resttemplate.shared.Message;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -17,7 +17,7 @@ Problems solved
 
 - standardowa Angular dostarcza moduł -ngRouter, lepszy jest jednak 3rd-party Angular UI-Router
 
-4. Użycie kompentów
+4. Użycie komponentów
 AngularJS 1.5 introduced the .component(), which is a special class of directives.
 A component encapsulates a template and a controller as a single unit, and also explicitly defines its inputs (data) and outputs (events).
 https://ui-router.github.io/ng1/tutorial/hellosolarsystem
@@ -39,3 +39,9 @@ Mark "Build project automatically".
 Apply changes.
 Go to Spring Boot Configuration and if everything goes well it will display a warning about "background compilation",
 Run your Spring Boot Application and you should be able to see your statisc's files changes when refresh your browser.
+
+6. Jak utrzymać ( i czy ma sens) globalną zmienną authenticated = true/false i jak ją przekazać do komponentów?
+
+7. Jak zrobić zagnieżdzone widoki?
+
+

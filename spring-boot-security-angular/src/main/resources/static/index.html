@@ -14,26 +14,26 @@
 <body ng-controller="MainController">
     <div class="container">
 
-        <h2>Main Page !</h2>
-
-        <div ng-show="!authenticated">
-            <a ui-sref="login" ui-sref-active="active">Login</a>
-        </div>
-        <div ng-show="authenticated">
-            <a ui-sref="welcome" ui-sref-active="active">Welcome</a>
-        </div>
-
-        <ui-view></ui-view>
+        <div ui-view="header-view"></div>
+        <br/>
+        <br/>
+        <br/>
+        <div ui-view="welcome-view"></div>
+        <div ui-view="login-view"></div>
 
 
-        <button ng-click="authenticate()">Authenticate</button>
+        <br/>
+        <hr/>
+        This is always visible:
+
+        <span ng-show="!authenticated">You need to login in.</span>
+        <span ng-show="authenticated">Welcome You are logged in.</span>
+        <br/>
+        <button ng-click="login()">Login as Wojtek|abc123</button>
         <br/>
         <button ng-click="getDocument()">Get Document</button>
-
-
-        <!--<p>Please log in</p>-->
-        <!--<p>{{document.id}}</p>-->
-        <!--<p>{{document.content}}</p>-->
+        <br/>
+        <button ng-click="logout()">Logout</button>
 
 
     </div>

@@ -13,4 +13,6 @@ public class ApplicationController {
     public Principal user(Principal user) {
         return user;
     }
+
+
 }

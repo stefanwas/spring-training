@@ -3,59 +3,142 @@
 // Declare app level module which depends on views, and components
 angular.module('sample.app', ['ngResource', 'ui.router'])
 
-    .config(function($httpProvider, $stateProvider) {
+    .config(function($httpProvider, $stateProvider, $urlRouterProvider) {
 
         // it tells the server that the client is not a browser
         // (instructs server to NOT send header to require basic authentication (Authenticate : Basic ...) and thus the browser will not pop up an authentication dialog
         $httpProvider.defaults.headers.common["X-Requested-With"] = 'XMLHttpRequest';
 
-        var loginState = {
-            name: 'login',
-            url: '/login',
-            component: 'login'
-        }
+        var loggedInState = {
+            name: 'in',
+            url: '/in',
 
-        var welcomeState = {
-            name: 'welcome',
-            url: '/welcome',
-            templateUrl: '/templates/welcome.html'
-        }
-
-        $stateProvider.state(loginState);
-        $stateProvider.state(welcomeState);
-
-    })
-
-    .component('login', {
-
-        templateUrl : '/templates/login.html',
-
-        controller: function() {
-            this.greeting = 'hello';
-            this.credentials = {};
-            this.username = "";
-            this.password = "";
-
-            this.toggleGreeting = function() {
-                this.greeting = (this.greeting == 'hello') ? 'whats up' : 'hello';
+            views: {
+                'header-view': {
+                    component: 'headerComponent'
+                },
+                'login-view': {
+                    component: 'welcomeComponent'
+                }
+            },
+            params: {
+            // TODO why is it null ?
+                user : null,
+                authenticated : true
             }
+        };
 
-            this.login = function() {
-            console.log("USERNAME=" + this.username);
-                //TODO login here
+        var loggedOutState = {
+            name: 'out',
+            url: '/out',
+            views: {
+                'header-view': {
+                    component: 'headerComponent'
+                },
+                'welcome-view': {
+                    component: 'loginComponent'
+                }
+            },
+            params: {
+                user:null,
+                authenticated : false
             }
-        }
+        };
+
+
+        $stateProvider.state(loggedInState);
+        $stateProvider.state(loggedOutState);
+//        $urlRouterProvider.otherwise('out');
+
     })
 
     .factory('DocumentService', ['$resource', function($resource) {
         return $resource('document/:documentId', {documentId : '@documentId'});
     }])
 
-    .factory('LoginService', ['$resource', function($resource) {
-        return $resource('authenticate', { username: "@username", password: "@password" });
+    .factory('UserService', ['$resource', function($resource) {
+        return $resource('user');
     }])
 
-    .controller('MainController', ['$scope', 'DocumentService', 'LoginService', function ($scope, DocumentService, LoginService) {
+    .factory('LoginService', ['$resource', function($resource) {
+        return $resource('login', { username: "@username", password: "@password" });
+    }])
+
+    .factory('LogoutService', ['$resource', function($resource) {
+        return $resource('logout');
+    }])
+
+
+    // this component will be displayed always - when user logged in or out
+    .component('headerComponent', {
+
+        templateUrl : '/templates/header.html',
+
+        controller: ['$scope', '$state', '$stateParams', 'LogoutService', function($scope, $state, $stateParams, LogoutService) {
+            $scope.authenticated = $stateParams.authenticated;
+            $scope.user = $stateParams.user;
+
+            this.logout = function() {
+
+                console.log("header logout called.");
+
+                LogoutService.get({}, function(result) {
+                    $scope.authenticated = false;
+                    console.log("Logout result: " + result)
+                    $state.go('out', {user: null, authenticated: false});
+                });
+            };
+        }]
+    })
+
+    // this component will be displayed when user logged out
+    .component('loginComponent', {
+
+        templateUrl : '/templates/login.html',
+
+        controller: ['$scope', '$state', 'LoginService', function($scope, $state, LoginService) {
+            $scope.user = null;     // it is also possible to use this instead of $scope
+
+            $scope.credentials = {};
+            $scope.credentials.username = "";
+            $scope.credentials.password = "";
+
+            $scope.login = function() {
+                console.log("login called. Username=" + $scope.credentials.username + ", Password=" + $scope.credentials.password);
+
+                LoginService.save(
+                    { username: $scope.credentials.username, password: $scope.credentials.password },
+                    function(result) {
+                        $scope.authenticated = true;
+                        console.log("Login result success: " + result.name);
+                        $state.go('in', {user: $scope.credentials.username, authenticated: true});
+                    },
+                    function(result) {
+                    //TODO add login error
+                        $scope.authenticated = false;
+                        console.log("Login result error: " + result.code);
+                    }
+                );
+
+
+            };
+        }]
+    })
+
+    // this component will be displayed when user logged in
+    .component('welcomeComponent', {
+        templateUrl: '/templates/welcome.html',
+
+        controller: function($scope, $state, $stateParams) {
+            // this is used to be able to access {{user}} from the template
+            $scope.user = $stateParams.user;
+        }
+    })
+
+
+    .controller('MainController',
+            ['$scope', '$state', 'DocumentService', 'LoginService', 'LogoutService', 'UserService',
+            function ($scope, $state, DocumentService, LoginService, LogoutService, UserService) {
 
         $scope.authenticated = false;
         $scope.document = null;
@@ -67,27 +150,32 @@ angular.module('sample.app', ['ngResource', 'ui.router'])
             });
         }
 
-        $scope.authenticate = function() {
-            console.log("Authenticate method called.");
+        $scope.login = function() {
+            console.log("Main Login method called.");
             LoginService.save(
                 { username: "wojtek", password: "abc123" },
                 function(result) {
                     $scope.authenticated = true;
-                    console.log("Auth result success: " + result.code);
+                    console.log("Login result success: " + result.name);
                 },
                 function(result) {
-                    console.log("Auth result error: " + result.code);
+                    $scope.authenticated = false;
+                    console.log("Login result error: " + result.code);
                 }
             );
         };
 
 
-
         $scope.logout = function() {
+            console.log("Main Logout method called.");
+            LogoutService.get({}, function(result) {
+                $scope.authenticated = false;
+                console.log("Logout result: " + result)
+            });
         };
 
         $scope.open = function(documentId) {
-            console.log("GET=" + documentId);
+            console.log("OPEN DOC ID=" + documentId);
             $scope.document = DocumentService.get(
                 { documentId : documentId },
                 function(document) {
@@ -95,6 +183,20 @@ angular.module('sample.app', ['ngResource', 'ui.router'])
                 }
             );
         };
+
+        UserService.get({},
+            function(result) {
+                $scope.authenticated = true;
+                console.log("Get user success: " + result.principal.username);
+                $state.go('in', {authenticated: true, user: result.principal.username})
+            },
+            function(result) {
+                $scope.authenticated = false;
+//                console.log("Get user failed: " + result.code) // to nie działa
+                $state.go('out', {authenticated: false, user: null})
+            }
+
+        );
 
 //        $scope.open('123');
 //        $scope.authenticate();        //TODO authn on every app reload

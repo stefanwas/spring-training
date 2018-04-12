@@ -76,7 +76,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .accessDeniedHandler(restAccessDeniedHandler)
                 .and()
             .formLogin()
-                .loginProcessingUrl("/authenticate")
+                .loginProcessingUrl("/login")
                 .successHandler(restAuthenticationSuccessHandler)
                 .failureHandler(restAuthenticationFailureHandler)
                 .usernameParameter("username")

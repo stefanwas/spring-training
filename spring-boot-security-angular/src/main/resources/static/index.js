@@ -7,7 +7,7 @@ angular.module('sample.app', ['ngResource', 'ui.router'])
 
         // it tells the server that the client is not a browser
         // (instructs server to NOT send header to require basic authentication (Authenticate : Basic ...) and thus the browser will not pop up an authentication dialog
-        $httpProvider.defaults.headers.common["X-Requested-With"] = 'XMLHttpRequest';
+        $httpProvider.defaults.headers.common["X-Requested-With"] = 'XMLHttpRequest';  // is this needed ?
 
         var loggedInState = {
             name: 'in',
@@ -195,7 +195,6 @@ angular.module('sample.app', ['ngResource', 'ui.router'])
 //                console.log("Get user failed: " + result.code) // to nie działa
                 $state.go('out', {authenticated: false, user: null})
             }
-
         );
 
 //        $scope.open('123');
